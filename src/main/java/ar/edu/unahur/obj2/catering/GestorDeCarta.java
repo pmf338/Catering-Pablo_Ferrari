@@ -3,6 +3,8 @@ package ar.edu.unahur.obj2.catering;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+import ar.edu.unahur.obj2.catering.excepciones.NadaParaRevertirException;
+
 public class GestorDeCarta {
 
     private final Deque<Modificacion> historial;
@@ -20,7 +22,11 @@ public class GestorDeCarta {
         if(historial.isEmpty()) {
             throw new NadaParaRevertirException();
         }
+        
+        Modificacion ultima = historial.pop();
+        ultima.deshacer();
     }
 
+    
     
 }

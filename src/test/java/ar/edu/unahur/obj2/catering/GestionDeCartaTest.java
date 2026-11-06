@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unahur.obj2.catering.Comandos.ActualizarPrecio;
+import ar.edu.unahur.obj2.catering.Comandos.AgregarPropuesta;
+
 public class GestionDeCartaTest {
 
     private Servicio fotografo(){
@@ -26,11 +29,13 @@ public class GestionDeCartaTest {
 
     @Test 
     void dadaUnaModifiacionDeAgregar_alAplicarla_agregaLaPropuestaAlMenu(){
-        Menu menu = crearMenuParrillero(parrillada());
-        Servicio fotografo = fotografo();
+        Menu menu = crearMenuParrillero();
+        Servicio fotografo = new Servicio("Fotógrafo", 100000.0);
 
         GestorDeCarta gestor = new GestorDeCarta();
         gestor.aplicar(new AgregarPropuesta(menu,fotografo));
+        AgregarPropuesta modificacion = new AgregarPropuesta(menu, fotografo);
+        modificacion.ejecutar();
 
         assertTrue(menu.incluye("Fotógrafo"));
         assertEquals(432000.0,menu.precio());

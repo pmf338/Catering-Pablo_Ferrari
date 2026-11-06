@@ -3,6 +3,7 @@ package ar.edu.unahur.obj2.catering.Comandos;
 import ar.edu.unahur.obj2.catering.Menu;
 import ar.edu.unahur.obj2.catering.Modificacion;
 import ar.edu.unahur.obj2.catering.Propuesta;
+import ar.edu.unahur.obj2.catering.excepciones.PropuestaNoIncluidaException;
 
 public class QuitarPropuesta implements Modificacion{
 
