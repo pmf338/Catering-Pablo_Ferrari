@@ -37,4 +37,12 @@ public class Servicio implements Propuesta{
         return this.nombre.equals(nombre);
     }
 
+    public void actualizarPrecio(Double nuevoPrecio){
+        if(nuevoPrecio < 0){
+            throw new PrecioNegativoException();
+        }
+
+        this.precio = nuevoPrecio;
+    }
+
 }

@@ -1,8 +1,11 @@
 package ar.edu.unahur.obj2.catering;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unahur.obj2.catering.excepciones.PrecioNegativoException;
 
 public class PropuestaTest {
 
@@ -25,5 +28,10 @@ public class PropuestaTest {
         assertTrue(eventoCompleto.incluye("DJ y sonido"));
         assertTrue(eventoCompleto.incluye("Parrillada completa"));
         assertFalse(eventoCompleto.incluye("Fotógrafo"));
+    }
+
+    @Test 
+    void dadoUnServicioConPrecioNegativo_alCrearlo_lanzaPrecioNegativoException(){
+        assertThrows(PrecioNegativoException.class,() -> new Servicio("Fotógrafo",-100.0));
     }
 }

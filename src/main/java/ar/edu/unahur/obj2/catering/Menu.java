@@ -59,5 +59,17 @@ public class Menu implements Propuesta{
     public Boolean incluye(String nombre) {
         return propuestas.stream().anyMatch(propuesta -> propuesta.incluye(nombre));
     }
+
+    public Integer indiceDe(Propuesta propuesta){
+        return propuestas.indexOf(propuesta);
+    }
+
+    public void quitarEn(Integer posicion){
+        propuestas.remove(posicion);
+    }
+
+    public void agregarEn(Integer posicion,Propuesta propuesta){
+        propuestas.add(posicion,propuesta);
+    }
     
 }
